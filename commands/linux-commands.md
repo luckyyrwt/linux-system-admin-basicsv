@@ -172,8 +172,4 @@
 
 ---
 
-## Future Additions
 
-Add newly learned commands and important variants below this line. Avoid duplicating entries already documented above.Linux is important for DevOps
-AWS uses Linux servers
-I am learning Linux commands
