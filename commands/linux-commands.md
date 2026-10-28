@@ -171,5 +171,179 @@
 - **`git push`:** Sends committed changes to the remote repository.
 
 ---
+## 11. Process Management
 
+| Command | Use |
+|---|---|
+| `ps aux` | Display running processes with details about users and resource usage |
+| `ps aux \| grep nginx` | Search process output for nginx |
+| `pgrep -a nginx` | Show matching process IDs and command lines |
+| `top` | Monitor processes and system resource usage in real time |
+| `htop` | Interactive process monitor; may require installation |
+| `sleep 300 &` | Run a 300-second sleep command in the background |
+
+**Examples**
+
+```bash
+ps aux | grep nginx
+pgrep -a nginx
+sleep 300 &
+```
+
+**Note:** The `grep nginx` command can also match its own search process. `pgrep -a nginx` is often a cleaner way to search for matching processes.
+
+## 12. System Resource Monitoring
+
+| Command | Use |
+|---|---|
+| `free -h` | Display RAM and swap usage in human-readable units |
+| `du -sh directory` | Display the total disk usage of a directory |
+| `du -sh *` | Display disk usage for each item in the current directory |
+
+**Examples**
+
+```bash
+free -h
+du -sh /home/ubuntu
+du -sh *
+```
+
+**Important:** `free -h` checks memory, `df -h` checks filesystem space, and `du -sh` checks the space used by files or directories.
+
+## 13. File Permissions
+
+| Command | Use |
+|---|---|
+| `chmod +x script.sh` | Add execute permission |
+| `chmod -x script.sh` | Remove execute permission |
+| `chmod 700 script.sh` | Give the owner read, write and execute permissions only |
+| `chmod 754 script.sh` | Owner: full permissions; group: read and execute; others: read only |
+| `chmod 755 script.sh` | Owner: full permissions; group and others: read and execute |
+
+**Permission number reference**
+
+| Number | Permission |
+|---|---|
+| `7` | Read + Write + Execute (`rwx`) |
+| `6` | Read + Write (`rw-`) |
+| `5` | Read + Execute (`r-x`) |
+| `4` | Read only (`r--`) |
+
+**Example**
+
+```bash
+chmod 755 script.sh
+ls -l script.sh
+./script.sh
+```
+
+The file needs a valid executable script and the required interpreter or runtime to run successfully.
+
+## 14. User and Group Management
+
+| Command | Use |
+|---|---|
+| `sudo useradd -m lucky` | Create user `lucky` and a home directory |
+| `sudo usermod -aG devops yntp` | Add user `yntp` to the supplementary `devops` group |
+| `id username` | Display a user's UID, GID and group memberships |
+| `groups username` | Display the groups a user belongs to |
+| `sudo passwd lucky` | Set or change the password for user `lucky` |
+
+**Examples**
+
+```bash
+sudo useradd -m lucky
+sudo passwd lucky
+id lucky
+groups lucky
+```
+
+**`adduser` vs `useradd`**
+
+- `adduser` is generally an interactive helper on Ubuntu/Debian.
+- `useradd` is a lower-level utility; use `-m` when you want it to create a home directory.
+
+**Important:** The `devops` group must exist before adding a user to it. The `-aG` options append a supplementary group without replacing existing supplementary group memberships.
+
+## 15. Additional Networking Commands
+
+| Command | Use |
+|---|---|
+| `ip route` | Display the routing table and default route |
+| `curl wttr.in/NOIDA` | Request weather information for Noida from wttr.in |
+| `curl https://example.com` | Make an HTTP request to a website |
+
+**Examples**
+
+```bash
+ip route
+curl https://example.com
+```
+
+`curl` is commonly used to test URLs, APIs and HTTP responses.
+
+## 16. Viewing and Counting Text
+
+| Command | Use |
+|---|---|
+| `less filename` | View file content page by page |
+| `head filename` | Display the first 10 lines by default |
+| `head -n 5 filename` | Display the first 5 lines |
+| `tail filename` | Display the last 10 lines by default |
+| `tail -n 5 filename` | Display the last 5 lines |
+| `tail -f logfile.log` | Follow new lines added to a log file |
+| `wc filename` | Display line, word and byte counts |
+| `wc -l filename` | Count lines |
+| `wc -w filename` | Count words |
+| `wc -c filename` | Count bytes |
+
+**Examples**
+
+```bash
+head -n 5 employee.txt
+tail -n 5 employee.txt
+wc -l employee.txt
+```
+
+## 17. AWK Text Processing
+
+| Command | Use |
+|---|---|
+| `awk '{print $1}' filename` | Print the first whitespace-separated field |
+| `awk '{print $NF}' filename` | Print the last field |
+| `awk '{print NR, $0}' filename` | Print each line with its record number |
+| `awk '$5 > 40000 {print $2, $5}' employee.txt` | Print fields 2 and 5 when field 5 exceeds 40000 |
+| `awk -v limit=40000 '$5 > limit {print $2, $5}' employee.txt` | Filter using an AWK variable |
+| `awk -F ',' '{print $1, $2}' data.csv` | Split simple comma-separated data and print fields 1 and 2 |
+
+**AWK reference**
+
+- `$0` = complete line
+- `$1`, `$2` = first and second fields
+- `$NF` = last field
+- `NR` = current record number
+- `NF` = number of fields in the current record
+- `-F` = specify the field separator
+- `-v` = pass a variable to AWK
+
+**Note:** The salary examples assume field 5 contains the salary. `-F ','` does not fully handle CSV quoting rules when a field contains commas inside double quotes.
+
+## 18. Archiving and Compression
+
+| Command | Use |
+|---|---|
+| `tar -cvf backup.tar directory/` | Create an uncompressed tar archive |
+| `tar -xvf backup.tar` | Extract a tar archive |
+| `zip -r backup.zip directory/` | Create a ZIP archive of a directory |
+| `unzip backup.zip` | Extract a ZIP archive |
+
+**Option reference**
+
+- `c` = create archive
+- `x` = extract archive
+- `v` = verbose output
+- `f` = specify archive filename
+- `-r` = include directory contents recursively for ZIP
+
+**Note:** `zip` and `unzip` may need to be installed separately.
 
