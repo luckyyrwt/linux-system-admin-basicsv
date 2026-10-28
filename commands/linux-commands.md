@@ -347,3 +347,22 @@ wc -l employee.txt
 
 **Note:** `zip` and `unzip` may need to be installed separately.
 
+
+## 19. Additional Text Editors and Command History
+
+| Command | Use |
+|---|---|
+| `nano filename` | Open or create a file in Nano |
+| `sudo !!` | Repeat the previous command with sudo in Bash when history expansion is enabled |
+
+## 20. Process Monitoring
+
+| Command | Use |
+|---|---|
+| `top` | Monitor running processes and system resource usage in real time |
+
+## 21. Additional File Counting
+
+| Command | Use |
+|---|---|
+| `wc filename` | Display line, word and byte counts for a file |
