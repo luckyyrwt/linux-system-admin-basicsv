@@ -2,6 +2,18 @@
 
 ## 1. Shell Script
 A shell script is a file containing commands that run together to automate tasks.
+Shell: A shell is a command-line interpreter that accepts commands from the user or a script and passes them to the operating system for execution.
+
+Shell scripting: Writing multiple shell commands in a file to automate tasks.
+
+Types of Shells
+sh — Bourne Shell; an early Unix shell.
+bash — Bourne Again Shell; an enhanced shell and commonly used in Linux.
+csh — C Shell; uses C-like syntax.
+ksh — Korn Shell; combines features of the Bourne shell with additional scripting features.
+zsh — Z Shell; an interactive shell with advanced features and customisation.
+fish — Friendly Interactive Shell; designed for user-friendly interactive command-line use.
+
 
 ## 2. Shebang
 ```bash
